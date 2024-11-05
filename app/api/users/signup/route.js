@@ -2,12 +2,11 @@ import dbConnect from "@/dbconfic/dbconfic";
 import User from "@/models/userModel";
 import { NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
-import { custom_middleware } from "@/helpers/global-route-middleware";
 import { ApiError } from "next/dist/server/api-utils";
 
 
 
-const signup = async (NextRequest) => {
+export async function POST(NextRequest){
 
 
     await dbConnect()
@@ -49,4 +48,4 @@ const signup = async (NextRequest) => {
 }
 
 
-export const POST = custom_middleware(signup)
+

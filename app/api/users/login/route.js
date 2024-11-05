@@ -3,11 +3,10 @@ import dbConnect from "@/dbconfic/dbconfic";
 import User from "@/models/userModel";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
-import { custom_middleware } from "@/helpers/global-route-middleware";
 import { ApiError } from "next/dist/server/api-utils";
 import jwt  from "jsonwebtoken";
 
-const loginHandler = async (req) => {
+export async function POST(req) {
     await dbConnect();
     const { email, password } = await req.json();
 
@@ -18,14 +17,14 @@ const loginHandler = async (req) => {
     //Check user exist
     const user = await User.findOne({ email });
     if (!user) {
-        throw new ApiError(400, "Invalid credentials");
+        throw ApiError(400, "Invalid credentials");
     }
 
 
     //Check password
     const isValidPassword = await bcrypt.compare(password, user.password);
     if (!isValidPassword) {
-        throw new ApiError(400, "Invalid Password");
+        throw ApiError(400, "Invalid Password");
     }
 
     const tokenData = {
@@ -60,4 +59,3 @@ const loginHandler = async (req) => {
 
 };
 
-export const POST = custom_middleware(loginHandler)
