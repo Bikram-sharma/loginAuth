@@ -85,6 +85,7 @@ export default function Login() {
        </span>
        <button onClick={onLogin} type="submit" className={`rounded bg-transparent  my-5 py-2 font-bold text-xl  w-full ${buttonDisable ? "shadow-none cursor-not-allowed" : "shadow-2xl shadow-white shadow-inner"}`}>Login</button>
        </section>
+       <Link href="/forgotpassword" className="px-2 italic font-mono text-base">Forgot Password?</Link>
        
      </fieldset>
 

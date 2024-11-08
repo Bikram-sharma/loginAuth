@@ -43,6 +43,6 @@ export async function POST(nextRequest) {
     return NextResponse.json({
         message: "User created successfully",
         success: true,
-        data: savedUser,
+        // data: savedUser,
     });
 }
