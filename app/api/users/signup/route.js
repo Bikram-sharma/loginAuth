@@ -2,13 +2,13 @@ import dbConnect from "@/dbconfic/dbconfic";
 import User from "@/models/userModel";
 import { NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
-import {sendEmail} from "@/helpers/mailer";
+import { sendEmail } from "@/helpers/mailer";
 
 export async function POST(nextRequest) {
     await dbConnect();
     const reqBody = await nextRequest.json();
-    const { username, email, password } = reqBody;
-
+    const { username, password } = reqBody;
+    const email = reqBody.email.toLowerCase()
     // Check if user already exists
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
     if (existingUser) {
@@ -33,12 +33,12 @@ export async function POST(nextRequest) {
     const savedUser = await newUser.save();
 
     // Send verification email
-   
-    await sendEmail({email, emailType: "VERIFY", userId: savedUser._id});
 
-        
-   
-    
+    await sendEmail({ email, emailType: "VERIFY", userId: savedUser._id });
+
+
+
+
 
     return NextResponse.json({
         message: "User created successfully",

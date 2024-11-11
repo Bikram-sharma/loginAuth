@@ -65,7 +65,7 @@ const onSend = async ()=>{
       />
          <fieldset className=" border-2 rounded border-gray-400 h-2/3 w-1/4 flex justify-center items-center flex-col text-2xl italic font-mono p-5 text-white">
          <legend>{loading ? 'loading' : 'Enter your Email'}</legend>
-          <input type="email"  onChange={(e)=> setEmail(e.target.value)} placeholder="Email" className="rounded mb-5 text-base px-2 py-1 bg-transparent border-b-2 focus:outline-none"/>
+          <input type="email"  onChange={(e)=> setEmail(e.target.value.toLowerCase())} placeholder="Email" className="rounded mb-5 text-base px-2 py-1 bg-transparent border-b-2 focus:outline-none"/>
           <button  type="submit"  onClick={onSend}className={`rounded bg-transparent  my-5 py-2 font-bold text-xl w-1/2 ${ buttonDisable? "shadow-none cursor-not-allowed" : "shadow-2xl shadow-white shadow-inner"}`}>Send</button>
 
          </fieldset>

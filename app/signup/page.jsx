@@ -43,7 +43,7 @@ export default function SignupPage() {
       try {
           setLoading(true);
           const response = await axios.post("/api/users/signup", user);
-          toast.success(`Singup Successfully`);
+          toast.success(`Singup Successfully, Check your Email for verification`);
           router.push("/login")
           }catch (error) {
               console.log(error)
@@ -109,7 +109,7 @@ export default function SignupPage() {
             <label className="mt-3 text-lg p-1">Username</label>
             <input id="username" value={user.username} onChange={(e) => setuser({ ...user, username: e.target.value })} type="text" placeholder="Username" required className="rounded mb-5 text-base px-2 py-1 bg-transparent border-b-2 outline-none required" />
             <label className="text-lg p-1">Email</label>
-            <input id="email" value={user.email} onChange={(e) => setuser({ ...user, email: e.target.value })} type="email" placeholder="Email" required className="rounded mb-5 text-base px-2 py-1 bg-transparent border-b-2 outline-none required" />
+            <input id="email" value={user.email} onChange={(e) => setuser({ ...user, email: e.target.value.toLowerCase() })} type="email" placeholder="Email" required className="rounded mb-5 text-base px-2 py-1 bg-transparent border-b-2 outline-none required" />
             <label className="text-lg p-1">Password</label>
             <span className="flex w-full border-b-2 outline-none focus:shadow-2xl focus:shadow-white mb-10">
               <input id="password" value={user.password} onChange={(e) => setuser({ ...user, password: e.target.value })} type={flag ? "password" : "text"} placeholder="Password" required className="rounded  text-base px-2 py-1 bg-transparent outline-none w-full required" />
