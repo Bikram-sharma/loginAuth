@@ -15,7 +15,7 @@ export default function UserProfile({params}) {
         Welcome,{params.id}
       </h1>
       <h1 className="w-full text-center">
-        It's Your Profile
+        Its Your Profile
       </h1>
     </div>
   );
