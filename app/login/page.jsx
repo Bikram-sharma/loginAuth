@@ -68,7 +68,7 @@ export default function Login() {
   }, [flag, user])
 
   return (
-    <div className="flex  flex-col justify-center items-center bg-gray-700 h-screen text-white">
+    <div className="flex  flex-col justify-center items-center bg-[url(https://images.pexels.com/photos/30716164/pexels-photo-30716164/free-photo-of-contemplative-solitude-under-sunset-by-a-tree.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-cover h-screen text-white">
       <Toaster
         position="top-center"
         reverseOrder={false}
@@ -76,8 +76,8 @@ export default function Login() {
           duration: 4000,
         }}
       />
-      <div className="flex flex-col justify-center items-center bg-gray-700 h-5/6 w-2/6 rounded">
-        <fieldset className=" border-2 rounded border-gray-400 h-5/6 w-5/6 flex justify-center items-center flex-col text-3xl italic font-mono p-5 text-white">
+      <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm  h-5/6 w-full md:w-1/2 lg:w-2/6 ">
+        <fieldset className=" border-2 rounded h-5/6 w-5/6 flex justify-center items-center flex-col text-3xl italic font-mono p-5">
           <legend>{loading ? "processing" : "Login"}</legend>
           <section className='flex justify-center  flex-col w-5/6'>
             <label className="text-lg p-1 ">Email</label>

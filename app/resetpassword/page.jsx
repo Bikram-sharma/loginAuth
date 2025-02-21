@@ -3,6 +3,7 @@ import toast, {Toaster} from 'react-hot-toast';
 import React, {useEffect, useState} from 'react'
 import validator from 'validator';
 import axios from 'axios';
+import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 
 
@@ -70,7 +71,7 @@ export default function ResetPassword() {
   }
 
   return (
-    <div className="flex  flex-col justify-center items-center bg-gray-700 h-screen text-white">
+    <div className="flex  flex-col justify-center items-center bg-[url(https://images.pexels.com/photos/30716164/pexels-photo-30716164/free-photo-of-contemplative-solitude-under-sunset-by-a-tree.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)] bg-cover h-screen text-white">
         <Toaster
         position="top-center"
         reverseOrder={false}
@@ -82,13 +83,18 @@ export default function ResetPassword() {
         
         }}
       />
-         <fieldset className=" border-2 rounded border-gray-400 h-2/3 w-1/4 flex justify-center items-center flex-col text-2xl italic font-mono p-5 text-white">
+      <div className='w-2/6 h-5/6 flex flex-col justify-center items-center bg-white/10 backdrop-blur-sm rounded'>
+      <fieldset className=" border-2 rounded h-5/6 w-5/6 flex justify-center items-center flex-col text-2xl italic font-mono p-5">
          <legend>{loading? 'loading' : 'Enter New Password'}</legend>
           <input type="password" onChange={(e)=>setNewPassword(e.target.value)} placeholder="Enter New Password" className="rounded mb-5 text-base px-2 py-1 bg-transparent border-b-2 focus:outline-none"/>
           <input type="password" onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="Confirm Password" className="rounded mt-5 text-base px-2 py-1 bg-transparent border-b-2 focus:outline-none"/>
           <button  type="submit" onClick={handeler} className={`rounded bg-transparent  my-5 py-2 font-bold text-xl w-1/2 ${ buttonDisabled ? "shadow-none cursor-not-allowed" : "shadow-2xl shadow-white shadow-inner"}`}>Update</button>
 
          </fieldset>
+         <Link href="/login" className="font-xl p-2 italic font-mono">Click here to Login</Link>
+
+      </div>
+         
     </div>
   )
 }
